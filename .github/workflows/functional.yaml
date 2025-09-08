@@ -22,7 +22,7 @@ jobs:
       image: greenbone/gvm-libs:stable
       options: --privileged
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: install dependencies
         run: |
           sh .github/install-openvas-dependencies.sh
@@ -30,7 +30,7 @@ jobs:
         run: |
           cmake -Bbuild -DCMAKE_BUILD_TYPE=Release
           cmake --build build -- install
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: rs-binaries
           path: assets
@@ -54,7 +54,7 @@ jobs:
           mkdir -p /etc/openvas
           cd nasl/tests
           make check
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.16.0'
       - name: verify lint
