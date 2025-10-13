@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container: greenbone/gvm-libs:stable
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: install dependencies
         run: |
           sh .github/install-openvas-dependencies.sh
@@ -18,7 +18,7 @@ jobs:
   Rust:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: actions/cache@v4
         with:
           path: |
