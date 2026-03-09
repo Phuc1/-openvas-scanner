@@ -17,7 +17,7 @@ jobs:
   openvasd:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: 'Set openvas-scanner-image'
         run: |
           echo "openvas:" >> st.yaml

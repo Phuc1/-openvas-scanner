@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container: greenbone/gvm-libs:stable
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: install dependencies
         run: |
           sh .github/install-openvas-dependencies.sh
@@ -18,8 +18,8 @@ jobs:
   Rust:
     runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: actions/checkout@v6
+      - uses: actions/cache@v5
         with:
           path: |
             ~/.cargo/bin/
@@ -53,7 +53,7 @@ jobs:
       - run: mv rust/target/aarch64-unknown-linux-gnu/release/feed-verifier assets/linux/arm64/feed-verifier
       - run: mv rust/target/x86_64-unknown-linux-gnu/release/feed-verifier assets/linux/amd64/feed-verifier
       - name: archive
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: rs-binaries
           path: assets/*
